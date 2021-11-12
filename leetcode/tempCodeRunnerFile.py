@@ -1,1 +1,0 @@
-print(dict(enumerate([1,2,3,4])))
