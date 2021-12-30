@@ -15,14 +15,11 @@ class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         nums_length = len(nums)
         dp_list = [1] * nums_length
-        # print(nums)
 
         for fast in range(nums_length):
-            max_temp = 1
             for slow in range(fast):
                 if nums[slow] < nums[fast]:
-                    max_temp = max(dp_list[slow] + 1, max_temp)
-                dp_list[fast] = max_temp
+                    dp_list[fast] = max(dp_list[slow] + 1, dp_list[fast])
             # print(dp_list[:fast+1])
 
         return max(dp_list)
